@@ -1,0 +1,118 @@
+/* ===== DRONE-SPECIFIC STYLES ===== */
+
+/* Map Container */
+.drone-map {
+    height: 500px;
+    width: 100%;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Map Overlay Controls */
+.map-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Drone Status Cards */
+.drone-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background: #F8F9FA;
+    transition: all 0.2s;
+    border-left: 4px solid;
+}
+
+.drone-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.drone-card.ready {
+    border-left-color: var(--trust-blue);
+}
+
+.drone-card.charging {
+    border-left-color: #FFC107;
+}
+
+.drone-card.on-mission {
+    border-left-color: #28A745;
+}
+
+.drone-card.returning {
+    border-left-color: #6C757D;
+}
+
+.drone-card.emergency {
+    border-left-color: var(--emergency-red);
+    animation: pulse-alert 1.5s infinite;
+}
+
+@keyframes pulse-alert {
+    0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+/* Battery Indicator */
+.battery-indicator {
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 0.25rem;
+}
+
+.battery-level {
+    height: 100%;
+    background: linear-gradient(to right, #28A745, #FFC107, #DC3545);
+    transition: width 0.5s;
+}
+
+/* Telemetry Table */
+#telemetryTable tr td:last-child {
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .drone-map {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .drone-map {
+        height: 350px;
+    }
+    
+    .map-overlay {
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+.drone-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+}
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

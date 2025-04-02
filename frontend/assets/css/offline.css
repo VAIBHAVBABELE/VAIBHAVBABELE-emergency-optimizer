@@ -1,0 +1,69 @@
+/* ===== OFFLINE-SPECIFIC STYLES ===== */
+
+/* Body Indicator */
+body.offline-mode::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--emergency-red);
+    z-index: 1100;
+    animation: pulse-offline 2s infinite;
+}
+
+@keyframes pulse-offline {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Cached Data Items */
+.cached-item {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: #F8F9FA;
+    border-radius: 0.25rem;
+    border-left: 3px solid var(--trust-blue);
+}
+
+.cached-item .timestamp {
+    font-size: 0.75rem;
+    color: #6C757D;
+}
+
+/* Sync Controls */
+.sync-status {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.sync-status.pending {
+    background-color: #FFF3CD;
+    border-left: 3px solid #FFC107;
+}
+
+.sync-status.failed {
+    background-color: #F8D7DA;
+    border-left: 3px solid #DC3545;
+}
+
+/* Offline Actions Cards */
+.offline-action-card {
+    transition: all 0.2s;
+    height: 100%;
+}
+
+.offline-action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .offline-action-card {
+        margin-bottom: 1rem;
+    }
+}

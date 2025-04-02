@@ -1,0 +1,77 @@
+/* ===== PREDICTION-SPECIFIC STYLES ===== */
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Chart Tooltip Customization */
+.chart-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    pointer-events: none;
+    z-index: 100;
+    font-size: 0.85rem;
+}
+
+/* Prediction Table Highlights */
+#predictionTable tr td:nth-child(2) {
+    font-weight: bold;
+    color: var(--trust-blue);
+}
+
+#predictionTable tr td:nth-child(5) {
+    font-family: monospace;
+}
+
+.positive-variance {
+    color: #28a745; /* Green */
+}
+
+.negative-variance {
+    color: #dc3545; /* Red */
+}
+
+/* AI Insights Cards */
+.insight-card {
+    border-left: 3px solid;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+}
+
+.insight-card.flood {
+    border-left-color: #1a73e8;
+}
+
+.insight-card.earthquake {
+    border-left-color: #fd7e14;
+}
+
+.insight-card.cyclone {
+    border-left-color: #6f42c1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 250px;
+    }
+    
+    #predictionTable td, #predictionTable th {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+.prediction-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}

@@ -1,0 +1,89 @@
+/* ===== ROUTE-SPECIFIC STYLES ===== */
+
+.route-map {
+    height: 600px;
+    width: 100%;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.map-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Route Summary Cards */
+.route-summary-card {
+    border-left: 3px solid;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.route-summary-card.normal {
+    border-left-color: #17a2b8;
+    background-color: rgba(23, 162, 184, 0.05);
+}
+
+.route-summary-card.high {
+    border-left-color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.05);
+}
+
+.route-summary-card.critical {
+    border-left-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+/* Hazard Alerts */
+.hazard-alert {
+    border-left: 3px solid #dc3545;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: rgba(220, 53, 69, 0.05);
+    border-radius: 0.25rem;
+}
+
+/* Alternative Routes */
+.alternative-route {
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 3px solid #6c757d;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+}
+
+.alternative-route:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.alternative-route.active {
+    border-left-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .route-map {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .route-map {
+        height: 350px;
+    }
+    
+    .map-controls {
+        top: auto;
+        bottom: 10px;
+    }
+}
