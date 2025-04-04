@@ -1,0 +1,11 @@
+{
+    "locations": [
+        {"name": "Depot", "lat": 28.6139, "lng": 77.2090},
+        {"name": "Medical Camp 1", "lat": 28.6200, "lng": 77.2150},
+        {"name": "Food Distribution 1", "lat": 28.6250, "lng": 77.2000},
+        {"name": "Rescue Site A", "lat": 28.6050, "lng": 77.2200},
+        {"name": "Shelter Camp 1", "lat": 28.6300, "lng": 77.2050}
+    ],
+    "demands": [0, 15, 20, 10, 5],
+    "vehicle_capacities": [25, 25]
+}

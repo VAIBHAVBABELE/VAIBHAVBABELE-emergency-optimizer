@@ -1,0 +1,7 @@
+names:
+  0: medical_kit
+  1: food_packet
+  2: water_bottle
+nc: 3
+train: ../yolo_data/images/train
+val: ../yolo_data/images/val
