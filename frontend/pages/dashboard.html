@@ -1,3 +1,4 @@
+<!-- update 1-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,18 +31,34 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="../assets/images/ui/logo.svg" alt="Emergency Optimizer" height="30">
-                <span class="ms-2">Emergency Supply Optimizer</span>
+                <span data-translate="appTitle">Emergency Supply Optimizer</span>
             </a>
 
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="../dashboard.html"><i class="fas fa-map me-1"></i> Dashboard</a>
+                    <a class="nav-link" href="../pages/dashboard.html" id="nav-dashboard">
+                        <i class="fas fa-map me-1"></i><span data-translate="dashboard">Dashboard</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/drones.html"><i class="fas fa-drone-alt me-1"></i> Drones</a>
+                    <a class="nav-link" href="../pages/drones.html" id="nav-drones">
+                        <i class="fas fa-drone-alt me-1"></i><span data-translate="drones">Drones</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/offline.html"><i class="fas fa-database me-1"></i> Offline</a>
+                    <a class="nav-link" href="../pages/offline.html" id="nav-offline">
+                        <i class="fas fa-database me-1"></i><span data-translate="offline">Offline</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/prediction.html" id="nav-predictions">
+                        <i class="fas fa-chart-line me-1"></i><span data-translate="predictions">Predictions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/routes.html" id="nav-routes">
+                        <i class="fas fa-route me-1"></i><span data-translate="routes">Routes</span>
+                    </a>
                 </li>
             </ul>
             
@@ -54,17 +71,17 @@
                 
                 <!-- Offline Mode Toggle -->
                 <button id="offlineToggle" class="btn btn-sm btn-warning me-3">
-                    <i class="fas fa-wifi"></i> Online Mode
+                    <i class="fas fa-wifi"></i> <span data-translate="onlineMode">Online Mode</span>
                 </button>
                 
                 <!-- User Profile -->
                 <div class="dropdown">
                     <button class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fas fa-user-shield"></i> Admin
+                        <i class="fas fa-user-shield"></i> <span data-translate="admin">Admin</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> Profile</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> <span data-translate="profile">Profile</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> <span data-translate="logout">Logout</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -78,7 +95,7 @@
             <div class="col-lg-3">
                 <div class="card shadow-sm mb-4">
                     <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0"><i class="fas fa-bell me-2"></i> Active Alerts</h5>
+                        <h5 class="mb-0"><i class="fas fa-bell me-2"></i><span data-translate="activeAlerts">Active Alerts</span></h5>
                     </div>
                     <div class="card-body p-0">
                         <div id="alertsContainer" class="alert-list">
@@ -94,17 +111,17 @@
                 <!-- Quick Actions -->
                 <div class="card shadow-sm">
                     <div class="card-header bg-success text-white">
-                        <h5 class="mb-0"><i class="fas fa-bolt me-2"></i> Quick Actions</h5>
+                        <h5 class="mb-0"><i class="fas fa-bolt me-2"></i><span data-translate="quickActions">Quick Actions</span></h5>
                     </div>
                     <div class="card-body">
                         <button id="simulateDisaster" class="btn btn-danger w-100 mb-2">
-                            <i class="fas fa-fire me-2"></i> Simulate Disaster
+                            <i class="fas fa-fire me-2"></i> <span data-translate="simulateDisaster">Simulate Disaster</span>
                         </button>
                         <button id="refreshData" class="btn btn-primary w-100 mb-2">
-                            <i class="fas fa-sync-alt me-2"></i> Refresh Data
+                            <i class="fas fa-sync-alt me-2"></i> <span data-translate="refreshData">Refresh Data</span>
                         </button>
                         <button id="viewOfflineData" class="btn btn-secondary w-100">
-                            <i class="fas fa-database me-2"></i> View Cached Data
+                            <i class="fas fa-database me-2"></i> <span data-translate="viewCachedData">View Cached Data</span>
                         </button>
                     </div>
                 </div>
@@ -114,7 +131,7 @@
             <div class="col-lg-6">
                 <div class="card shadow-sm h-100">
                     <div class="card-header bg-info text-white">
-                        <h5 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i> Disaster Map</h5>
+                        <h5 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i><span data-translate="disasterMap">Disaster Map</span></h5>
                     </div>
                     <div class="card-body p-0">
                         <div id="map" class="emergency-map" style="height: 600px;"></div>
@@ -126,23 +143,23 @@
             <div class="col-lg-3">
                 <div class="card shadow-sm mb-4">
                     <div class="card-header bg-warning text-dark">
-                        <h5 class="mb-0"><i class="fas fa-boxes me-2"></i> Resource Allocation</h5>
+                        <h5 class="mb-0"><i class="fas fa-boxes me-2"></i><span data-translate="resourceAllocation">Resource Allocation</span></h5>
                     </div>
                     <div class="card-body" id="resourceAllocation">
                         <div class="resource-meter mb-3">
-                            <h6>Food Packets</h6>
+                            <h6 data-translate="foodPackets">Food Packets</h6>
                             <div class="progress">
                                 <div class="progress-bar bg-success" role="progressbar" style="width: 65%">12,000/18,000</div>
                             </div>
                         </div>
                         <div class="resource-meter mb-3">
-                            <h6>Medicine Kits</h6>
+                            <h6 data-translate="medicineKits">Medicine Kits</h6>
                             <div class="progress">
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 40%">300/750</div>
                             </div>
                         </div>
                         <div class="resource-meter">
-                            <h6>Rescue Boats</h6>
+                            <h6 data-translate="rescueBoats">Rescue Boats</h6>
                             <div class="progress">
                                 <div class="progress-bar bg-primary" role="progressbar" style="width: 25%">5/20</div>
                             </div>
@@ -153,24 +170,24 @@
                 <!-- AI Predictions Summary -->
                 <div class="card shadow-sm">
                     <div class="card-header bg-dark text-white">
-                        <h5 class="mb-0"><i class="fas fa-brain me-2"></i> AI Predictions</h5>
+                        <h5 class="mb-0"><i class="fas fa-brain me-2"></i><span data-translate="aiPredictions">AI Predictions</span></h5>
                     </div>
                     <div class="card-body">
                         <div id="predictionSummary">
                             <div class="prediction-item mb-3">
                                 <div class="d-flex justify-content-between">
                                     <span class="fw-bold">Assam Flood</span>
-                                    <span class="badge bg-danger">High</span>
+                                    <span class="badge bg-danger" data-translate="high">High</span>
                                 </div>
-                                <small class="text-muted">Next 24h needs:</small>
+                                <small class="text-muted" data-translate="next24hNeeds">Next 24h needs:</small>
                                 <ul class="list-unstyled mt-1">
-                                    <li><i class="fas fa-bread-slice me-2"></i> 12,000 food packets</li>
-                                    <li><i class="fas fa-pills me-2"></i> 300 medicine kits</li>
+                                    <li><i class="fas fa-bread-slice me-2"></i> 12,000 <span data-translate="foodPackets">food packets</span></li>
+                                    <li><i class="fas fa-pills me-2"></i> 300 <span data-translate="medicineKits">medicine kits</span></li>
                                 </ul>
                             </div>
                             <div class="text-center">
                                 <button id="viewFullPredictions" class="btn btn-sm btn-outline-dark">
-                                    View Detailed Report <i class="fas fa-chevron-right ms-1"></i>
+                                    <span data-translate="viewDetailedReport">View Detailed Report</span> <i class="fas fa-chevron-right ms-1"></i>
                                 </button>
                             </div>
                         </div>
@@ -184,7 +201,7 @@
             <div class="col-12">
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i> Resource Distribution</h5>
+                        <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i><span data-translate="resourceDistribution">Resource Distribution</span></h5>
                     </div>
                     <div class="card-body">
                         <canvas id="resourceChart" height="100"></canvas>
@@ -199,31 +216,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h5><i class="fas fa-cross me-2"></i> Emergency Optimizer</h5>
-                    <p class="small">AI-powered disaster response system for faster relief delivery.</p>
+                    <h5><i class="fas fa-cross me-2"></i><span data-translate="appTitle">Emergency Supply Optimizer</span></h5>
+                    <p class="small" data-translate="footerDescription">AI-powered disaster response system for faster relief delivery.</p>
                 </div>
                 <div class="col-md-4">
-                    <h5>Quick Links</h5>
+                    <h5 data-translate="quickLinks">Quick Links</h5>
                     <ul class="list-unstyled small">
-                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> Documentation</a></li>
-                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> API Reference</a></li>
-                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> Training Videos</a></li>
+                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> <span data-translate="documentation">Documentation</span></a></li>
+                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> <span data-translate="apiReference">API Reference</span></a></li>
+                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> <span data-translate="trainingVideos">Training Videos</span></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5>Contact</h5>
+                    <h5 data-translate="contact">Contact</h5>
                     <ul class="list-unstyled small">
                         <li><i class="fas fa-envelope me-2"></i> support@emergency-opt.gov.in</li>
-                        <li><i class="fas fa-phone me-2"></i> 24/7 Helpline: 1078</li>
+                        <li><i class="fas fa-phone me-2"></i> <span data-translate="helpline24">24/7 Helpline:</span> 1078</li>
                     </ul>
                 </div>
             </div>
             <hr class="my-2 bg-secondary">
             <div class="text-center small">
-                <p class="mb-0">© 2023 Emergency Supply Optimizer | Developed by NIT-RA SQUAD</p>
+                <p class="mb-0">© 2023 Emergency Supply Optimizer | <span data-translate="developedBy">Developed by</span> NIT-RA SQUAD</p>
             </div>
         </div>
     </footer>
+    <script src="../assets/js/language-manager.js"></script>
+    <script src="../assets/js/language-events.js"></script>
     
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Supply Optimizer | Route Optimization</title>
+    <title data-translate="appTitle">Emergency Supply Optimizer | Route Optimization</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,12 +24,12 @@
     <link rel="icon" href="../assets/images/ui/logo-icon.png">
 </head>
 <body>
-    <!-- Consistent Header -->
+    <!-- Header -->
     <header class="navbar navbar-expand-lg navbar-dark bg-danger shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../pages/dashboard.html">
                 <img src="../assets/images/ui/logo.svg" alt="Emergency Optimizer" height="30">
-                <span class="ms-2">Emergency Supply Optimizer</span>
+                <span data-translate="appTitle">Emergency Supply Optimizer</span>
             </a>
             
             <div class="d-flex align-items-center">
@@ -41,25 +41,35 @@
                 
                 <!-- Offline Mode Toggle -->
                 <button id="offlineToggle" class="btn btn-sm btn-warning me-3">
-                    <i class="fas fa-wifi"></i> Online Mode
+                    <i class="fas fa-wifi"></i> <span data-translate="onlineMode">Online Mode</span>
                 </button>
                 
                 <!-- Navigation -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/dashboard.html"><i class="fas fa-map me-1"></i> Dashboard</a>
+                        <a class="nav-link" href="../pages/dashboard.html" id="nav-dashboard">
+                            <i class="fas fa-map me-1"></i><span data-translate="dashboard">Dashboard</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/drones.html"><i class="fas fa-drone-alt me-1"></i> Drones</a>
+                        <a class="nav-link" href="../pages/drones.html" id="nav-drones">
+                            <i class="fas fa-drone-alt me-1"></i><span data-translate="drones">Drones</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/prediction.html"><i class="fas fa-brain me-1"></i> Predictions</a>
+                        <a class="nav-link" href="../pages/offline.html" id="nav-offline">
+                            <i class="fas fa-database me-1"></i><span data-translate="offline">Offline</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fas fa-route me-1"></i> Routes</a>
+                        <a class="nav-link" href="../pages/prediction.html" id="nav-predictions">
+                            <i class="fas fa-chart-line me-1"></i><span data-translate="predictions">Predictions</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/offline.html"><i class="fas fa-database me-1"></i> Offline</a>
+                        <a class="nav-link" href="../pages/routes.html" id="nav-routes">
+                            <i class="fas fa-route me-1"></i><span data-translate="routes">Routes</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -73,61 +83,61 @@
             <div class="col-lg-4">
                 <div class="card shadow-sm mb-4">
                     <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0"><i class="fas fa-route me-2"></i> Plan New Route</h5>
+                        <h5 class="mb-0"><i class="fas fa-route me-2"></i><span data-translate="planNewRoute">Plan New Route</span></h5>
                     </div>
                     <div class="card-body">
                         <form id="routeForm">
                             <div class="mb-3">
-                                <label class="form-label">From (Warehouse)</label>
+                                <label class="form-label" data-translate="fromWarehouse">From (Warehouse)</label>
                                 <select id="warehouseSelect" class="form-select" required>
-                                    <option value="">-- Select Warehouse --</option>
-                                    <option value="guwahati">Guwahati Central</option>
-                                    <option value="patna">Patna Storage</option>
-                                    <option value="mumbai">Mumbai Depot</option>
+                                    <option value="" data-translate="selectWarehouse">-- Select Warehouse --</option>
+                                    <option value="guwahati" data-translate="guwahatiCentral">Guwahati Central</option>
+                                    <option value="patna" data-translate="patnaStorage">Patna Storage</option>
+                                    <option value="mumbai" data-translate="mumbaiDepot">Mumbai Depot</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">To (Disaster Zone)</label>
+                                <label class="form-label" data-translate="toDisasterZone">To (Disaster Zone)</label>
                                 <select id="disasterZoneSelect" class="form-select" required>
-                                    <option value="">-- Select Disaster Zone --</option>
-                                    <option value="assam_flood">Assam Flood Area</option>
-                                    <option value="bihar_flood">Bihar Flood Area</option>
-                                    <option value="gujarat_quake">Gujarat Earthquake</option>
+                                    <option value="" data-translate="selectDisasterZone">-- Select Disaster Zone --</option>
+                                    <option value="assam_flood" data-translate="assamFloodArea">Assam Flood Area</option>
+                                    <option value="bihar_flood" data-translate="biharFloodArea">Bihar Flood Area</option>
+                                    <option value="gujarat_quake" data-translate="gujaratEarthquake">Gujarat Earthquake</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Transport Type</label>
+                                <label class="form-label" data-translate="transportType">Transport Type</label>
                                 <div class="btn-group w-100" data-toggle="buttons">
                                     <input type="radio" class="btn-check" name="transportType" id="truck" autocomplete="off" checked>
                                     <label class="btn btn-outline-primary" for="truck">
-                                        <i class="fas fa-truck me-2"></i> Truck
+                                        <i class="fas fa-truck me-2"></i> <span data-translate="truck">Truck</span>
                                     </label>
                                     
                                     <input type="radio" class="btn-check" name="transportType" id="drone" autocomplete="off">
                                     <label class="btn btn-outline-primary" for="drone">
-                                        <i class="fas fa-drone-alt me-2"></i> Drone
+                                        <i class="fas fa-drone-alt me-2"></i> <span data-translate="drone">Drone</span>
                                     </label>
                                     
                                     <input type="radio" class="btn-check" name="transportType" id="boat" autocomplete="off">
                                     <label class="btn btn-outline-primary" for="boat">
-                                        <i class="fas fa-ship me-2"></i> Boat
+                                        <i class="fas fa-ship me-2"></i> <span data-translate="boat">Boat</span>
                                     </label>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Priority</label>
+                                <label class="form-label" data-translate="priority">Priority</label>
                                 <select id="prioritySelect" class="form-select">
-                                    <option value="normal">Normal</option>
-                                    <option value="high">High (Medical)</option>
-                                    <option value="critical">Critical (Rescue)</option>
+                                    <option value="normal" data-translate="normal">Normal</option>
+                                    <option value="high" data-translate="highMedical">High (Medical)</option>
+                                    <option value="critical" data-translate="criticalRescue">Critical (Rescue)</option>
                                 </select>
                             </div>
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-route me-2"></i> Calculate Optimal Route
+                                    <i class="fas fa-route me-2"></i> <span data-translate="calculateOptimalRoute">Calculate Optimal Route</span>
                                 </button>
                                 <button type="button" id="avoidHazards" class="btn btn-outline-danger">
-                                    <i class="fas fa-skull-crossbones me-2"></i> Avoid Hazards
+                                    <i class="fas fa-skull-crossbones me-2"></i> <span data-translate="avoidHazards">Avoid Hazards</span>
                                 </button>
                             </div>
                         </form>
@@ -137,13 +147,13 @@
                 <!-- Route Details -->
                 <div class="card shadow-sm">
                     <div class="card-header bg-success text-white">
-                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i> Route Summary</h5>
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i><span data-translate="routeSummary">Route Summary</span></h5>
                     </div>
                     <div class="card-body">
                         <div id="routeSummary">
                             <div class="alert alert-info">
                                 <i class="fas fa-info-circle me-2"></i>
-                                No route calculated yet. Select locations to begin.
+                                <span data-translate="noRouteCalculated">No route calculated yet. Select locations to begin.</span>
                             </div>
                         </div>
                         <div id="hazardAlerts" class="mt-3">
@@ -157,7 +167,7 @@
             <div class="col-lg-8">
                 <div class="card shadow-sm h-100">
                     <div class="card-header bg-info text-white">
-                        <h5 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i> Route Visualization</h5>
+                        <h5 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i><span data-translate="routeVisualization">Route Visualization</span></h5>
                     </div>
                     <div class="card-body p-0 position-relative">
                         <div id="routeMap" class="route-map"></div>
@@ -171,7 +181,7 @@
                                 </button>
                             </div>
                             <button id="printRoute" class="btn btn-sm btn-light ms-2">
-                                <i class="fas fa-print"></i> Print
+                                <i class="fas fa-print"></i> <span data-translate="print">Print</span>
                             </button>
                         </div>
                     </div>
@@ -184,12 +194,12 @@
             <div class="col-12">
                 <div class="card shadow-sm">
                     <div class="card-header bg-warning text-dark">
-                        <h5 class="mb-0"><i class="fas fa-random me-2"></i> Alternative Routes</h5>
+                        <h5 class="mb-0"><i class="fas fa-random me-2"></i><span data-translate="alternativeRoutes">Alternative Routes</span></h5>
                     </div>
                     <div class="card-body">
                         <div id="altRoutes" class="row">
                             <div class="col-12 text-center py-3">
-                                <p class="text-muted">Calculate a route to see alternatives</p>
+                                <p class="text-muted" data-translate="calculateRoutePrompt">Calculate a route to see alternatives</p>
                             </div>
                         </div>
                     </div>
@@ -198,36 +208,39 @@
         </div>
     </main>
 
-    <!-- Consistent Footer -->
+    <!-- Footer -->
     <footer class="bg-dark text-white py-3 mt-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h5><i class="fas fa-cross me-2"></i> Emergency Optimizer</h5>
-                    <p class="small">AI-powered disaster response system for faster relief delivery.</p>
+                    <h5><i class="fas fa-cross me-2"></i> <span data-translate="appTitle">Emergency Optimizer</span></h5>
+                    <p class="small" data-translate="footerDescription">AI-powered disaster response system for faster relief delivery.</p>
                 </div>
                 <div class="col-md-4">
-                    <h5>Quick Links</h5>
+                    <h5 data-translate="quickLinks">Quick Links</h5>
                     <ul class="list-unstyled small">
-                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> Documentation</a></li>
-                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> API Reference</a></li>
-                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> Training Videos</a></li>
+                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> <span data-translate="documentation">Documentation</span></a></li>
+                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> <span data-translate="apiReference">API Reference</span></a></li>
+                        <li><a href="#" class="text-white-50"><i class="fas fa-chevron-right me-1"></i> <span data-translate="trainingVideos">Training Videos</span></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5>Contact</h5>
+                    <h5 data-translate="contact">Contact</h5>
                     <ul class="list-unstyled small">
                         <li><i class="fas fa-envelope me-2"></i> support@emergency-opt.gov.in</li>
-                        <li><i class="fas fa-phone me-2"></i> 24/7 Helpline: 1078</li>
+                        <li><i class="fas fa-phone me-2"></i> <span data-translate="helpline24">24/7 Helpline:</span> 1078</li>
                     </ul>
                 </div>
             </div>
             <hr class="my-2 bg-secondary">
             <div class="text-center small">
-                <p class="mb-0">© 2023 Emergency Supply Optimizer | Developed by NIT-RA SQUAD</p>
+                <p class="mb-0">© 2023 <span data-translate="appTitle">Emergency Supply Optimizer</span> | <span data-translate="developedBy">Developed by</span> NIT-RA SQUAD</p>
             </div>
         </div>
     </footer>
+
+    <script src="../assets/js/language-manager.js"></script>
+    <script src="../assets/js/language-events.js"></script>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
