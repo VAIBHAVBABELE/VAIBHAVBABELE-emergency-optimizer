@@ -6,8 +6,10 @@
 - [prediction page](/frontend/pages/prediction.html)
 - [routes page](/frontend/pages/routes.html)
 
-- ![video Explaination](https://youtu.be/Xa-vIQaAVPc?si=ZrGXODqbbBM9k-Cx)
+-[github link](https://github.com/VAIBHAVBABELE/emergency-optimizer)
+
 - [Ppt explain](https://drive.google.com/file/d/1lpdMWpY0hrAtfRtp1E1FuUEkacCv75h_/view?usp=drivesdk)
+- [![Click to watch demo video](https://img.youtube.com/vi/Xa-vIQaAVPc/0.jpg)](https://www.youtube.com/watch?v=Xa-vIQaAVPc "Demo Video")
 
 
 # Emergency Supply Optimizer 🚑🇮🇳
