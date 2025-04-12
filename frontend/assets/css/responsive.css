@@ -1,0 +1,150 @@
+/* Mobile-first responsive styles */
+@media (max-width: 992px) {
+    /* Header adjustments */
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+    
+    .navbar-brand img {
+        height: 24px;
+    }
+    
+    .navbar-brand span {
+        font-size: 0.9rem;
+    }
+    
+    /* Collapsible navigation */
+    .navbar-nav {
+        margin-top: 0.5rem;
+        padding: 0.5rem 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav-item {
+        margin-bottom: 0.25rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Right-aligned items */
+    .d-flex.align-items-center {
+        margin-left: auto;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    
+    /* Language toggle */
+    .btn-group.btn-group-sm {
+        margin-right: 0.5rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Offline toggle */
+    #offlineToggle {
+        margin-right: 0.5rem !important;
+        margin-bottom: 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    /* User dropdown */
+    .dropdown .btn {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    /* Hide icons on smallest screens */
+    @media (max-width: 400px) {
+        .nav-link i, 
+        #offlineToggle i,
+        .dropdown .btn i {
+            display: none;
+        }
+    }
+}
+
+/* For very small screens (landscape phones) */
+@media (max-width: 576px) {
+    .navbar-brand span {
+        display: none;
+    }
+    
+    .navbar-brand::after {
+        content: "ESO";
+        display: inline-block;
+    }
+    
+    .nav-link span {
+        font-size: 0.8rem;
+    }
+    
+    /* Stack the right-aligned items vertically */
+    .d-flex.align-items-center {
+        flex-direction: column;
+        align-items: flex-end !important;
+    }
+    
+    .btn-group.btn-group-sm,
+    #offlineToggle {
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* For all pages general mobile adjustments */
+@media (max-width: 768px) {
+    /* Add padding to body to account for fixed header */
+    body {
+        padding-top: 60px;
+    }
+    
+    /* Make containers full width */
+    .container {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Adjust typography for mobile */
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    /* Form elements */
+    .form-control, .btn {
+        font-size: 0.9rem;
+    }
+    
+    /* Tables */
+    table {
+        font-size: 0.8rem;
+    }
+    
+    /* Cards */
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* For the smallest screens */
+@media (max-width: 400px) {
+    /* Even more compact navigation */
+    .navbar {
+        padding: 0.25rem 0.5rem;
+    }
+    
+    /* Hide less important elements */
+    .d-none-xxs {
+        display: none !important;
+    }
+    
+    /* Make buttons more compact */
+    .btn {
+        padding: 0.25rem 0.5rem;
+    }
+}
