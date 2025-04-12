@@ -1,4 +1,4 @@
-# VAIBHAVBABELE-emergency-optimizer
+# emergency-optimizer
 
 - [main page](/frontend/pages/dashboard.html)
 - [drone page](/frontend/pages/drones.html)
