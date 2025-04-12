@@ -1,14 +1,16 @@
 # VAIBHAVBABELE-emergency-optimizer
 
-[main page of emergency optimizer](/frontend/pages/dashboard.html)
-[drone page of emergency optimizer](/frontend/pages/drones.html)
-[offline page of emergency optimizer](/frontend/pages/offline.html)
-[prediction page of emergency optimizer](/frontend/pages/prediction.html)
-[routes page of emergency optimizer](/frontend/pages/routes.html)
+- [main page](/frontend/pages/dashboard.html)
+- [drone page](/frontend/pages/drones.html)
+- [offline page](/frontend/pages/offline.html)
+- [prediction page](/frontend/pages/prediction.html)
+- [routes page](/frontend/pages/routes.html)
+
+- [video Explaination](https://youtu.be/Xa-vIQaAVPc?si=ZrGXODqbbBM9k-Cx)
+- [Ppt explain](https://drive.google.com/file/d/1lpdMWpY0hrAtfRtp1E1FuUEkacCv75h_/view?usp=drivesdk)
 
 
 # Emergency Supply Optimizer 🚑🇮🇳
-
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -48,13 +50,19 @@
    - Obstacle avoidance
    - Multi-drop optimization
 
+- [Route](/frontend/assets/images/5.png)
+
 2. **Demand Prediction**
    - Time-series analysis
    - Population density mapping
 
+- [prediction](/frontend/assets/images/4.png)
+
 3. **Offline Operation**
    - CSV data storage
    - SMS fallback
+
+- [offline](/frontend/assets/images/6.png)
 
 ## Technology Stack
 **Frontend:**
@@ -90,7 +98,13 @@ graph TD
 
 ## Team
 
-    **VAIBHAV BABELE
-    **ANUPRIYA YADAV
-    **VANSH GUPTA
-    **SHIVAM KUMAR
+    **VAIBHAV BABELE**
+    **ANUPRIYA YADAV**
+    **VANSH GUPTA**
+    **SHIVAM KUMAR**
+
+## some imaages
+
+- [offline](/frontend/assets/images/1.png)
+- [offline](/frontend/assets/images/2.png)
+- [offline](/frontend/assets/images/3.png)
