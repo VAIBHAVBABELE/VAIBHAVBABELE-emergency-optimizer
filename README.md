@@ -1,4 +1,4 @@
-# VAIBHAVBABELE-emergency-optimizer
+# emergency-optimizer
 
 - [main page](/frontend/pages/dashboard.html)
 - [drone page](/frontend/pages/drones.html)
@@ -6,7 +6,7 @@
 - [prediction page](/frontend/pages/prediction.html)
 - [routes page](/frontend/pages/routes.html)
 
-- [video Explaination](https://youtu.be/Xa-vIQaAVPc?si=ZrGXODqbbBM9k-Cx)
+- ![video Explaination](https://youtu.be/Xa-vIQaAVPc?si=ZrGXODqbbBM9k-Cx)
 - [Ppt explain](https://drive.google.com/file/d/1lpdMWpY0hrAtfRtp1E1FuUEkacCv75h_/view?usp=drivesdk)
 
 
@@ -50,19 +50,19 @@
    - Obstacle avoidance
    - Multi-drop optimization
 
-- [Route](/frontend/assets/images/5.png)
+- ![Route](/frontend/assets/images/5.png)
 
 2. **Demand Prediction**
    - Time-series analysis
    - Population density mapping
 
-- [prediction](/frontend/assets/images/4.png)
+- ![prediction](/frontend/assets/images/4.png)
 
 3. **Offline Operation**
    - CSV data storage
    - SMS fallback
 
-- [offline](/frontend/assets/images/6.png)
+- ![offline](/frontend/assets/images/6.png)
 
 ## Technology Stack
 **Frontend:**
@@ -78,7 +78,7 @@
 - Offline CSV
 
 ## System Architecture
-```mermaid
+mermaid
 graph TD
     A[Field Data] --> B{Processor}
     B --> C[Prediction Model]
@@ -105,6 +105,6 @@ graph TD
 
 ## some imaages
 
-- [offline](/frontend/assets/images/1.png)
-- [offline](/frontend/assets/images/2.png)
-- [offline](/frontend/assets/images/3.png)
+- ![dashboard](/frontend/assets/images/1.png)
+- ![index](/frontend/assets/images/2.png)
+- ![route](/frontend/assets/images/3.png)
