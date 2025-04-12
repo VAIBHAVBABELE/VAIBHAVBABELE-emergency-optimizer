@@ -6,7 +6,7 @@
 - [prediction page](/frontend/pages/prediction.html)
 - [routes page](/frontend/pages/routes.html)
 
-- [video Explaination](https://youtu.be/Xa-vIQaAVPc?si=ZrGXODqbbBM9k-Cx)
+- ![video Explaination](https://youtu.be/Xa-vIQaAVPc?si=ZrGXODqbbBM9k-Cx)
 - [Ppt explain](https://drive.google.com/file/d/1lpdMWpY0hrAtfRtp1E1FuUEkacCv75h_/view?usp=drivesdk)
 
 
