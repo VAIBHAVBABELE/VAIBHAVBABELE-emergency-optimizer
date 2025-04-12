@@ -1,3 +1,3 @@
 # VAIBHAVBABELE-emergency-optimizer
 
-../frontend/pages/dashboard.html
+[index page](/frontend/pages/dashboard.html)
