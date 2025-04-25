@@ -183,25 +183,280 @@ function updateChart(data, hours) {
  * Render AI insights cards
  */
 function renderInsights(insights, disasterType) {
-    let html = '';
-    
-    insights.forEach((insight, index) => {
-        html += `
-            <div class="insight-card ${disasterType}">
-                <div class="d-flex">
-                    <div class="flex-shrink-0 me-2">
-                        <i class="fas fa-${index === 0 ? 'exclamation-triangle' : 'lightbulb'}"></i>
+    // Disaster-specific insight templates
+    const disasterInsights = {
+        flood: {
+            icon: 'fa-water',
+            alerts: [
+                "Water levels rising rapidly in 3 districts",
+                "River embankments breached at 2 locations",
+                "50+ villages cut off from road access"
+            ],
+            recommendations: [
+                "Deploy 2000 water purification tablets immediately",
+                "Prepare 500 inflatable boats for rescue operations",
+                "Stock extra anti-diarrheal medication in flood-prone areas",
+                "Alert hospitals about potential leptospirosis cases"
+            ]
+        },
+        earthquake: {
+            icon: 'fa-mountain',
+            alerts: [
+                "Magnitude 6.3 quake with 12 aftershocks",
+                "3 buildings collapsed in epicenter area",
+                "Power outages reported in 5 districts"
+            ],
+            recommendations: [
+                "Mobilize search & rescue teams with structural engineers",
+                "Prepare 2000 trauma kits for crush injuries",
+                "Set up 10 mobile ICU units near affected areas",
+                "Prioritize temporary shelters with earthquake-resistant design"
+            ]
+        },
+        cyclone: {
+            icon: 'fa-wind',
+            alerts: [
+                "Cyclone intensifying to Category 4",
+                "Storm surge expected in coastal areas",
+                "Red alert issued for 3 coastal districts"
+            ],
+            recommendations: [
+                "Evacuate populations within 10km of coastline",
+                "Stock 3000 emergency food packets",
+                "Prepare 200 generators for power backup",
+                "Secure all temporary shelters against high winds"
+            ]
+        },
+        // Add more disaster types as needed
+        pandemic: {
+            icon: 'fa-virus',
+            alerts: [
+                "Rapid spread in urban areas detected",
+                "Hospital occupancy reaching 85% capacity",
+                "New variant with higher transmission rate"
+            ],
+            recommendations: [
+                "Distribute 50,000 PPE kits to healthcare workers",
+                "Set up 10 mobile testing centers",
+                "Prepare isolation wards with 2000 beds",
+                "Stock extra oxygen concentrators in rural clinics"
+            ]
+        },
+        wildfire: {
+            icon: 'fa-fire',
+            alerts: [
+                "Wildfire spreading rapidly across 500+ acres",
+                "3 communities under evacuation orders",
+                "Air quality index reaching hazardous levels"
+            ],
+            recommendations: [
+                "Deploy 20 firefighting teams with aerial support",
+                "Prepare 1000 N95 masks for smoke protection",
+                "Set up 5 emergency shelters in safe zones",
+                "Stock extra burn treatment kits in nearby hospitals"
+            ]
+        },
+        landslide: {
+            icon: 'fa-hill-rockslide',
+            alerts: [
+                "Multiple landslides reported in hilly areas",
+                "2 major highways blocked by debris",
+                "Soil saturation levels at dangerous thresholds"
+            ],
+            recommendations: [
+                "Mobilize earth-moving equipment to clear routes",
+                "Evacuate high-risk slope communities",
+                "Prepare 500 emergency shelter kits",
+                "Alert geologists for stability assessments"
+            ]
+        },
+        tsunami: {
+            icon: 'fa-wave-square',
+            alerts: [
+                "Tsunami warning issued after 7.8 magnitude quake",
+                "Coastal areas expecting 3-5 meter waves",
+                "Evacuation orders for areas below 10m elevation"
+            ],
+            recommendations: [
+                "Activate all coastal warning sirens",
+                "Deploy 50 rescue boats in safe zones",
+                "Prepare 2000 life jackets for distribution",
+                "Stock extra desalination kits for drinking water"
+            ]
+        },
+        drought: {
+            icon: 'fa-sun-plant-wilt',
+            alerts: [
+                "Severe drought conditions persisting for 6+ months",
+                "Water reservoir levels below 20% capacity",
+                "Crop failures reported in 3 districts"
+            ],
+            recommendations: [
+                "Implement immediate water rationing measures",
+                "Distribute 5000 water storage tanks",
+                "Set up 10 mobile water distribution centers",
+                "Prepare emergency fodder for livestock"
+            ]
+        },
+        heatwave: {
+            icon: 'fa-temperature-high',
+            alerts: [
+                "Extreme heat warning: 47°C+ temperatures expected",
+                "Heat index reaching life-threatening levels",
+                "Power grid under strain from cooling demand"
+            ],
+            recommendations: [
+                "Open 25 cooling centers in urban areas",
+                "Distribute 10,000 hydration packs",
+                "Suspend outdoor work during peak hours",
+                "Prepare hospitals for heatstroke cases"
+            ]
+        },
+        coldwave: {
+            icon: 'fa-temperature-low',
+            alerts: [
+                "Arctic blast bringing record-low temperatures",
+                "Frostbite warnings in effect",
+                "Heating fuel shortages reported"
+            ],
+            recommendations: [
+                "Activate emergency warming shelters",
+                "Distribute 5000 thermal blankets",
+                "Prepare road salt for icy conditions",
+                "Stock extra hypothermia treatment kits"
+            ]
+        },
+        industrial: {
+            icon: 'fa-industry',
+            alerts: [
+                "Chemical leak at industrial plant",
+                "3km exclusion zone established",
+                "Wind carrying contaminants NE at 15km/h"
+            ],
+            recommendations: [
+                "Distribute 2000 gas masks to affected areas",
+                "Prepare decontamination showers",
+                "Alert poison control centers",
+                "Evacuate downwind communities"
+            ]
+        },
+        terrorism: {
+            icon: 'fa-person-rifle',
+            alerts: [
+                "Terror alert level raised to HIGH",
+                "Security forces on maximum alert",
+                "Intelligence suggests possible attacks"
+            ],
+            recommendations: [
+                "Increase security at sensitive locations",
+                "Prepare mass casualty response kits",
+                "Establish emergency communication channels",
+                "Conduct vulnerability assessments"
+            ]
+        },
+        civil: {
+            icon: 'fa-people-arrows',
+            alerts: [
+                "Civil unrest spreading to 5 districts",
+                "Road blockades affecting supply routes",
+                "Emergency services facing access issues"
+            ],
+            recommendations: [
+                "Prepare secure supply corridors",
+                "Stock extra medical supplies in safe zones",
+                "Establish neutral humanitarian zones",
+                "Coordinate with community leaders"
+            ]
+        }
+    };
+
+    // Get insights for selected disaster type or default
+    const disasterData = disasterInsights[disasterType] || {
+        icon: 'fa-triangle-exclamation',
+        alerts: ["Emergency situation developing"],
+        recommendations: ["Monitor situation closely"]
+    };
+
+    let html = `
+        <div class="alert alert-danger">
+            <h5><i class="fas ${disasterData.icon} me-2"></i> ${disasterType.charAt(0).toUpperCase() + disasterType.slice(1)} Alerts</h5>
+            <ul class="mb-0">
+                ${disasterData.alerts.map(alert => `<li>${alert}</li>`).join('')}
+            </ul>
+        </div>
+        
+        <div class="alert alert-warning mt-3">
+            <h5><i class="fas fa-person-digging me-2"></i> Immediate Actions Required</h5>
+            <div class="action-items">
+                ${disasterData.recommendations.map((rec, i) => `
+                    <div class="d-flex align-items-start mb-2">
+                        <div class="flex-shrink-0 me-2 text-warning">
+                            <i class="fas fa-circle-${i < 3 ? 'chevron-right' : 'dot'} fa-xs"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            ${rec}
+                        </div>
                     </div>
-                    <div class="flex-grow-1">
-                        ${insight}
-                    </div>
-                </div>
+                `).join('')}
             </div>
-        `;
-    });
-    
+        </div>
+        
+        <div class="alert alert-info mt-3">
+            <h5><i class="fas fa-chart-line me-2"></i> Resource Projections</h5>
+            <div class="progress-container">
+                ${generateResourceProjections(disasterType)}
+            </div>
+        </div>
+    `;
+
     $('#aiInsights').html(html);
 }
+
+// Helper function for resource projections
+function generateResourceProjections(disasterType) {
+    const resources = {
+        flood: ['Water Purification', 'Boats', 'Medical Kits', 'Blankets'],
+        earthquake: ['Search Teams', 'Trauma Kits', 'Shelters', 'Heavy Equipment'],
+        cyclone: ['Food Packets', 'Generators', 'Tarpaulins', 'First Aid'],
+        pandemic: ['PPE Kits', 'Vaccines', 'Oxygen', 'Medicines'],
+        wildfire: ['Fire Retardant', 'Masks', 'Burn Kits', 'Eye Wash'],
+        landslide: ['Debris Clearance', 'Slope Sensors', 'Shelter Kits', 'GPS Units'],
+        tsunami: ['Life Jackets', 'Rescue Boats', 'Desalination', 'First Aid'],
+        drought: ['Water Tanks', 'Irrigation', 'Food Aid', 'Livestock Feed'],
+        heatwave: ['Cooling Packs', 'Electrolytes', 'Shade Nets', 'IV Fluids'],
+        coldwave: ['Blankets', 'Heaters', 'Winter Coats', 'Hot Meals'],
+        industrial: ['Gas Masks', 'Decon Kits', 'Antidotes', 'Hazmat Suits'],
+        terrorism: ['Trauma Kits', 'Tourniquets', 'Security Gear', 'Comms'],
+        civil: ['Med Supplies', 'Food Stores', 'Security', 'Comms']
+    };
+    
+    return (resources[disasterType] || ['Water', 'Food', 'Shelter', 'Medical']).map(resource => `
+        <div class="mb-2">
+            <div class="d-flex justify-content-between small mb-1">
+                <span>${resource}</span>
+                <span>${Math.floor(Math.random() * 100) + 50}% increase expected</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+                <div class="progress-bar bg-${getResourceColor(resource)}" 
+                     role="progressbar" style="width: ${Math.floor(Math.random() * 80) + 20}%">
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function getResourceColor(resource) {
+    const colors = {
+        'Water': 'info',
+        'Medical': 'danger',
+        'Food': 'success',
+        'Shelter': 'warning',
+        'PPE': 'primary'
+    };
+    return colors[resource.split(' ')[0]] || 'secondary';
+}
+
+
 
 /**
  * Update prediction data table
