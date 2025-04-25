@@ -129,7 +129,7 @@ def main():
     
     # Load sample data (replace with your actual data path)
     data_path = r'C:\xampp\htdocs\emergency-optimizer\backend\data\delivery_locations.json'
-    
+    ng
     optimizer.load_locations(data_path)
     
     # Optimize routes
