@@ -9,7 +9,7 @@
 - [github link](https://github.com/VAIBHAVBABELE/emergency-optimizer)
 
 - [Ppt explain](https://drive.google.com/file/d/1lpdMWpY0hrAtfRtp1E1FuUEkacCv75h_/view?usp=drivesdk)
-- [![Click to watch demo video](https://img.youtube.com/vi/HdDWH7cDeCY/0.jpg)](https://www.youtube.com/watch?v=HdDWH7cDeCY "Demo Video")
+  
 
 
 # Emergency Supply Optimizer 🚑🇮🇳
